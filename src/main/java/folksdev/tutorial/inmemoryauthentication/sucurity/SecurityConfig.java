@@ -22,7 +22,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -30,13 +30,13 @@ public class SecurityConfig {
     public UserDetailsService users() {
         UserDetails user1 = User.builder()
                 .username("agha")
-                .password(passwordEncoder().encode("0610"))
+                .password(bCryptPasswordEncoder().encode("0610"))
                 .roles("USER")
                 .build();
 
         UserDetails admin = User.builder()
                 .username("adminAgha")
-                .password(passwordEncoder().encode("06102002"))
+                .password(bCryptPasswordEncoder().encode("06102002"))
                 .roles("ADMIN")
                 .build();
 
